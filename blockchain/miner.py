@@ -22,7 +22,7 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = last_proof + 100000000000000000000000000000000000000000000000000000000
+    proof = 2345235667457578686796789678963
     #  TODO: Your code here
     while not valid_proof(last_proof,proof):
         proof += 1
@@ -37,7 +37,9 @@ def valid_proof(last_hash, proof):
 
     IE:  last_hash: ...999123456, new hash 123456888...
     """
-    if  str(hash(proof))[:6] == str(hash(last_hash))[-6:]:
+
+   
+    if  hashlib.sha256(str(proof).encode()).hexdigest()[:6] == hashlib.sha256(str(last_hash).encode()).hexdigest()[-6:]:
         return True
     
     else:
