@@ -7,13 +7,29 @@ from hashtables import (HashTable,
 
 
 def get_indices_of_item_weights(weights, length, limit):
-    ht = HashTable(16)
+    ht = HashTable(length)#started as 16
+    for i in range(len(weights)):
+        hash_table_insert(ht,weights[i],i)
 
+    answer = None
+   
+    for i in range(len(weights)):
+        search_value = limit - weights[i]
+
+        result =  hash_table_retrieve(ht,search_value)
+        print("Result",result)
+        if result is not None:
+            
+            answer = [i,result]
+            print("answernot NONE", answer)
+            
+        
+    return answer
     """
     YOUR CODE HERE
     """
 
-    return None
+
 
 
 def print_answer(answer):

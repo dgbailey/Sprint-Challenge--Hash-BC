@@ -59,7 +59,7 @@ def hash_table_insert(hash_table, key, value):
 def hash_table_remove(hash_table, key):
     index = hash(key, len(hash_table.storage))
 
-    current_pair = hash_table.storage[index]
+    current_pair = hash_table.storage[index]#looking at current array index
     last_pair = None
 
     while current_pair is not None and current_pair.key != key:
@@ -88,8 +88,9 @@ def hash_table_retrieve(hash_table, key):
     while current_pair is not None:
         if(current_pair.key == key):
             return current_pair.value
+            
         current_pair = current_pair.next
-
+  
 
 # '''
 # Fill this in
