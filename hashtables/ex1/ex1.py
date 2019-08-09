@@ -20,8 +20,9 @@ def get_indices_of_item_weights(weights, length, limit):
         print("Result",result)
         if result is not None:
             
-            answer = [i,result]
+            answer = [result,i]
             print("answernot NONE", answer)
+            break
             
         
     return answer
