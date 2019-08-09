@@ -22,9 +22,10 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 0
+    proof = last_proof + 100000000000000000000000000000000000000000000000000000000
     #  TODO: Your code here
-
+    while not valid_proof(last_proof,proof):
+        proof += 1
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
 
@@ -36,9 +37,13 @@ def valid_proof(last_hash, proof):
 
     IE:  last_hash: ...999123456, new hash 123456888...
     """
-
+    if  str(hash(proof))[:6] == str(hash(last_hash))[-6:]:
+        return True
+    
+    else:
+        return False
     # TODO: Your code here!
-    pass
+    
 
 
 if __name__ == '__main__':
